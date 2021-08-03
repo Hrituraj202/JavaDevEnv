@@ -1,0 +1,26 @@
+version: '3.8'
+
+networks:
+    java:
+        name: java
+
+services:
+    javac:
+        image: java:8
+        container_name: javac
+        volumes:
+            - ./src:/var/www/java
+        working_dir: /var/www/java
+        entrypoint: ["javac", "Main.java"]
+        networks:
+            - java
+
+    java:
+        image: java:8
+        container_name: java
+        volumes:
+            - ./src:/var/www/java
+        working_dir: /var/www/java
+        entrypoint: ["java", "Main"]
+        networks:
+            - java

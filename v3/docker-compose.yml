@@ -1,0 +1,16 @@
+version: '3.8'
+
+networks:
+    java:
+        name: java
+
+services:
+    jvm:
+        build:
+            context: .
+        container_name: jvm
+        volumes:
+            - ./src:/var/www/java
+        working_dir: /var/www/java
+        networks:
+            - java

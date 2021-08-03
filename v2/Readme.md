@@ -1,0 +1,1 @@
+docker-compose run --rm javac && docker-compose run --rm java
